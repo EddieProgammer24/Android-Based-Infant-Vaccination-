@@ -8,8 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
-    ImageView imageSign;
-    ImageView imageHome;
+    ImageView imageSign,imageHome,imageAppointment,imageInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +31,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,UserList.class);
+                startActivity(intent);
+            }
+        });
+
+        imageAppointment = findViewById(R.id.imgAppointment);
+        imageAppointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,DoctorRegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        imageInfo = findViewById(R.id.imgInfo);
+
+        imageInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,DoctorMainLogin.class);
                 startActivity(intent);
             }
         });
