@@ -6,13 +6,6 @@ public class ReadWriteUserDetails {
     public ReadWriteUserDetails() {
     }
 
-    public ReadWriteUserDetails(String fullname, String doB, String gender, String mobile) {
-        this.fullname= fullname;
-        this.doB = doB;
-        this.gender = gender;
-        this.mobile = mobile;
-    }
-
     public String getFullname() {
         return fullname;
     }
@@ -44,4 +37,13 @@ public class ReadWriteUserDetails {
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
+
+    public ReadWriteUserDetails(String fullname, String doB, String gender, String mobile) {
+        this.fullname= fullname;
+        this.doB = doB;
+        this.gender = gender;
+        this.mobile = mobile;
+    }
+
+
 }

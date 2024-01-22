@@ -13,6 +13,21 @@
         android:theme="@style/Theme.EChanjo"
         tools:targetApi="31">
         <activity
+            android:name=".DoctorForgotPassword"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorDeleteProfile"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorChangePassword"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorUpdateEmail"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorUpdateProfile"
+            android:exported="false" />
+        <activity
             android:name=".DoctorProfileActivity"
             android:exported="false" />
         <activity
