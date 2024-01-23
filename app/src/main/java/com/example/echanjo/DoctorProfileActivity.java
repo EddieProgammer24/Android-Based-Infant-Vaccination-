@@ -42,6 +42,16 @@ public class DoctorProfileActivity extends AppCompatActivity {
         textViewMobile = findViewById(R.id.textView_show_mobile);
         progressBar = findViewById(R.id.progressBar);
 
+        //Set OnClickListener on ImageView to Open UploadProfilePicActivity
+        imageView = findViewById(R.id.imageView_profile_dp);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DoctorProfileActivity.this,DoctorUploadPicture.class);
+                startActivity(intent);
+            }
+        });
+
         authProfile = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = authProfile.getCurrentUser();
 

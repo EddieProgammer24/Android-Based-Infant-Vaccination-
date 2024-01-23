@@ -1,11 +1,14 @@
 package com.example.echanjo;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +19,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 
 public class DoctorForgotPassword extends AppCompatActivity {
 
@@ -23,6 +27,7 @@ public class DoctorForgotPassword extends AppCompatActivity {
     private EditText editTextPwdResetEmail;
     private ProgressBar progressBar;
     private FirebaseAuth authProfile;
+    private final static String TAG = "DoctorForgotPassword";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +74,15 @@ public class DoctorForgotPassword extends AppCompatActivity {
                     startActivity(intent);
                     finish(); //Close DoctorProfileActivity
                 }else{
+                    try{
+                        throw task.getException();
+                    } catch (FirebaseAuthInvalidUserException e){
+                        editTextPwdResetEmail.setError("User does not exist or is no longer valid. Please register again.");
+                    } catch (Exception e) {
+                        Log.e(TAG, e.getMessage());
+                        Toast.makeText(DoctorForgotPassword.this,
+                                e.getMessage(),Toast.LENGTH_SHORT).show();
+                    }
                     Toast.makeText(DoctorForgotPassword.this,
                             "Something went wrong!",Toast.LENGTH_SHORT).show();
                 }
