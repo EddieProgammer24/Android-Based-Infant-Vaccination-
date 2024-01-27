@@ -6,6 +6,9 @@ public class ReadWriteUserDetails {
     public ReadWriteUserDetails() {
     }
 
+    public ReadWriteUserDetails(String textDoB, String textGender, String textMobile) {
+    }
+
     public String getFullname() {
         return fullname;
     }
